@@ -9,6 +9,8 @@ FROM ubuntu:16.10
 # Fix locale to avoid warnings:
 ENV LANG C.UTF-8
 
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
+
 # Needed for setup:
 COPY ./setup-ubuntu.sh /tmp/setup-ubuntu.sh
 COPY ./setup-android-sdk.sh /tmp/setup-android-sdk.sh
